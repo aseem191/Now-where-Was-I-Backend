@@ -27,7 +27,7 @@ public class Nowwherewasiheroku5Application {
 	      return "db";
 	    } catch (Exception e) {
 	      model.put("message", e.getMessage());
-	      return "error";
+	      return "err";
 	    }
 	  }
 
