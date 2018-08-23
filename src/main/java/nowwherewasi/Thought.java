@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class Thought {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	

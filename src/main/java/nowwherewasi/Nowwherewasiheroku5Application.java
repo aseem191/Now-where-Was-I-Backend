@@ -23,7 +23,7 @@ public class Nowwherewasiheroku5Application {
 	  String db(Map<String, Object> model) {
 	    try (Connection connection = dataSource.getConnection()) {
 	      Statement stmt = connection.createStatement();
-	      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Thought (thought TEXT, place TEXT, time INTEGER)");
+	      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Thought (id INTEGER, thought TEXT, place TEXT, time INTEGER, PRIMARY KEY (id));");
 	      return "db";
 	    } catch (Exception e) {
 	      model.put("message", e.getMessage());
