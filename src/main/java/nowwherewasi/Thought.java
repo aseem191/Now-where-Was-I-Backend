@@ -8,16 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "Thought")
 public class Thought {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@Column(name = "thought")
 	private String thought;
 	
+	@Column(name = "place")
 	private String place;
 	
+	@Column(name = "time")
 	private int time;
 	
 	public String getThought() {
