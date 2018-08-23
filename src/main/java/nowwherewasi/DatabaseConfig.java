@@ -16,9 +16,9 @@ public class DatabaseConfig {
     public DataSource dataSource() {
     	DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://fwrgexbrklerom:17c0e7f12ad80a7c48687e031b9aef5091baf1b3980de20628a1ffa4dacff6b6@ec2-54-235-242-63.compute-1.amazonaws.com:5432/db2gj196m7ebo");
-        dataSource.setUsername("fwrgexbrklerom");
-        dataSource.setPassword("17c0e7f12ad80a7c48687e031b9aef5091baf1b3980de20628a1ffa4dacff6b6");
+        dataSource.setUrl("jdbc:postgresql://dsunqmslsnabko:e8a02ca9b18303e0cae0c0afee66f4b70e61a27529b8e61d393949eb761e54ed@ec2-54-235-242-63.compute-1.amazonaws.com:5432/d7to71935jul24");
+        dataSource.setUsername("dsunqmslsnabko");
+        dataSource.setPassword("e8a02ca9b18303e0cae0c0afee66f4b70e61a27529b8e61d393949eb761e54ed");
 
         return dataSource;
     }
