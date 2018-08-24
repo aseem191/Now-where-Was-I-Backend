@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @SpringBootApplication
@@ -31,6 +33,21 @@ public class Nowwherewasiheroku5Application {
 	      return "err";
 	    }
 	  }
+	
+	@RequestMapping(value = "/postrequest", method = RequestMethod.POST)
+	String process(@RequestBody Map<String, Object> payload) 
+	    throws Exception {
+
+		try (Connection connection = dataSource.getConnection()) {
+	      Statement stmt = connection.createStatement();
+	      //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Thought (id bigserial primary key, thought TEXT, place TEXT, time INTEGER);");
+	      stmt.executeUpdate("INSERT INTO Thought (thought, place, time) VALUES ('" + payload.get("thought") + "', '" + payload.get("place") + "', " + payload.get("time") + ");");
+	      return "db";
+	    } catch (Exception e) {
+	      return "err";
+	    }
+
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Nowwherewasiheroku5Application.class, args);
