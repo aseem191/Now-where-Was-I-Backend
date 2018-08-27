@@ -23,7 +23,7 @@ public class Nowwherewasiheroku5Application {
 	@Autowired
 	 private DataSource dataSource;
 
-	@RequestMapping("/dbadd")
+	@RequestMapping(value = "/dbadd", method = RequestMethod.GET)
 	  String db(Map<String, Object> model) {
 	    try (Connection connection = dataSource.getConnection()) {
 	      Statement stmt = connection.createStatement();
@@ -36,7 +36,7 @@ public class Nowwherewasiheroku5Application {
 	    }
 	  }
 	
-	@RequestMapping("/dbclear")
+	@RequestMapping(value = "/dbclear", method = RequestMethod.GET)
 	  String dbclear(Map<String, Object> model) {
 	    try (Connection connection = dataSource.getConnection()) {
 	      Statement stmt = connection.createStatement();
