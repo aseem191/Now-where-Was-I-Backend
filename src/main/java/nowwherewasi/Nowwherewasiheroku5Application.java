@@ -36,6 +36,19 @@ public class Nowwherewasiheroku5Application {
 	    }
 	  }
 	
+	@RequestMapping("/dbclear")
+	  String dbclear(Map<String, Object> model) {
+	    try (Connection connection = dataSource.getConnection()) {
+	      Statement stmt = connection.createStatement();
+	      stmt.executeUpdate("DELETE FROM Thought;");
+	      //stmt.executeUpdate("INSERT INTO Thought (thought, place, time) VALUES ('Make food.', 'kitchen', 1);");
+	      return "db";
+	    } catch (Exception e) {
+	      model.put("message", e.getMessage());
+	      return "err";
+	    }
+	  }
+	
 	@RequestMapping(value = "/postrequest", method = RequestMethod.POST)
 	String process(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
